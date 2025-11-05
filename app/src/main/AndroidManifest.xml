@@ -12,11 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GeffenProject">
         <activity
+            android:name=".login"
+            android:exported="false" />
+        <activity
+            android:name=".splash"
+            android:exported="true" />
+        <activity
             android:name=".About"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
