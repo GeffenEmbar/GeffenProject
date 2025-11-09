@@ -2,6 +2,9 @@ package com.geffen.geffenproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +13,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class splash extends AppCompatActivity {
+
+    private ImageView myImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +26,17 @@ public class splash extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        myImageView = (ImageView) findViewById(R.id.ivPic);
+
         Thread mSplashThread = new Thread() {
             @Override
             public void run() {
                 try {
                     synchronized (this) {
                         wait(3000);
+                        Animation myFadeInAnimation = AnimationUtils.loadAnimation(splash.this, R.anim.animation);
+                        myImageView.startAnimation(myFadeInAnimation);
                     }
                 } catch (InterruptedException ex) {
                 }

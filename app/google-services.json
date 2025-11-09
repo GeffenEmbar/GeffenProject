@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1069143552499",
+    "firebase_url": "https://geffenfirebase-default-rtdb.firebaseio.com",
+    "project_id": "geffenfirebase",
+    "storage_bucket": "geffenfirebase.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1069143552499:android:bbea9e70f8c40ed02f6286",
+        "android_client_info": {
+          "package_name": "com.geffen.geffenproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBko_JwiT2174yHqezul4z8xzQLI8dc9yE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
