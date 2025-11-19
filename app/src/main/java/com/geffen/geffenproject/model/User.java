@@ -2,15 +2,20 @@ package com.geffen.geffenproject.model;
 
 public class User {
     private String id, fname, lname, phone, email, password;
+    private Boolean isAdmin;
+
+
+
 
     // פעולות בונות
-    public User(String id, String fname, String lname, String phone, String email, String password) {
+    public User(String id, String fname, String lname, String phone, String email, String password, Boolean isAdmin) {
         this.id = id;
         this.fname = fname;
         this.lname = lname;
         this.phone = phone;
         this.email = email;
         this.password = password;
+        this.isAdmin = isAdmin;
     }
 
     public User() {
@@ -65,7 +70,18 @@ public class User {
         this.password = password;
     }
 
-    // פעולת הדפסה
+
+    public void setAdmin(Boolean admin) {
+        isAdmin = admin;
+    }
+
+    public Boolean getAdmin() {
+        return isAdmin;
+    }
+
+
+
+
     @Override
     public String toString() {
         return "User{" +
@@ -75,6 +91,8 @@ public class User {
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", isAdmin=" + isAdmin +
                 '}';
     }
+
 }
