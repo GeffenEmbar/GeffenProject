@@ -2,6 +2,7 @@ package com.geffen.geffenproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
@@ -10,9 +11,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button register;
+    Button register, login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +27,24 @@ public class MainActivity extends AppCompatActivity {
         });
 
         register = findViewById(R.id.register);
+        login = findViewById(R.id.login);
+        register.setOnClickListener(this);
+        login.setOnClickListener(this);
 
-        Intent intent = new Intent(MainActivity.this, Register.class);
-        startActivity(intent);
 
 
+    }
 
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == register.getId()) {
+            Intent intent = new Intent(MainActivity.this, Register.class);
+            startActivity(intent);
+        }
+        else if (view.getId() == login.getId())
+        {
+            Intent intent = new Intent(MainActivity.this, LogInActivity.class);
+            startActivity(intent);
+        }
     }
 }

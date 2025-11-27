@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 
 
 import com.geffen.geffenproject.model.User;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -461,5 +462,32 @@ public class DatabaseService {
 
 
     */
+
+
+
+    public void LoginUser(@NotNull final String email,final String password,
+                          @Nullable final DatabaseCallback<String> callback) {
+
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+        mAuth.signInWithEmailAndPassword(email,password)
+
+                .addOnCompleteListener(task -> {
+
+                    if (task.isSuccessful()) {
+                        Log.d("TAG", "createUserWithEmail:success");
+
+                        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        callback.onCompleted(uid);
+
+                    } else {
+                        Log.w("TAG", "createUserWithEmail:failure", task.getException());
+
+                        if (callback != null)
+                            callback.onFailed(task.getException());
+                    }
+                });
+    }
+
 
 }
