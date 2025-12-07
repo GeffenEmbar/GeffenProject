@@ -8,34 +8,85 @@
     tools:context=".MainActivity">
 
 
-    <LinearLayout
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:background="#000000">
 
-        <Button
+        <!-- Background image with 50% opacity -->
+        <ImageView
+            android:id="@+id/bgImage"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:text="Register"
-            android:textSize="30dp"
-            android:background="@color/black"
-            android:id="@+id/register"
-            >
+            android:layout_height="match_parent"
+            android:src="@drawable/guitar2"
+            android:scaleType="centerCrop"
+            android:alpha="0.5" />
 
-        </Button>
-        <Button
+        <!-- Gradient overlay -->
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:text="Log In"
-            android:textSize="30dp"
-            android:background="@color/black"
-            android:id="@+id/login"
-            >
+            android:layout_height="match_parent"
+            android:src="@drawable/gradient_overlay"
+            android:scaleType="fitXY" />
 
-        </Button>
+        <!-- Glass-morphism card -->
+        <LinearLayout
+            android:id="@+id/glassCard"
+            android:layout_width="match_parent"
+            android:layout_height="650dp"
+            android:layout_margin="24dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:background="@drawable/glass_card"
+            android:padding="24dp"
+            android:layout_gravity="center">
 
-    </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome!"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:shadowColor="#B0FFFFFF"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="14"
+                android:gravity="center"
+                android:layout_margin="16dp"
+                />
+
+            <Button
+                android:background="@drawable/button_background"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Register"
+                android:textSize="40dp"
+                android:textColor="#222222"
+                android:elevation="8dp"
+                android:id="@+id/register"
+                android:layout_marginBottom="16dp"
+                >
+
+            </Button>
+
+
+            <Button
+                android:background="@drawable/button_background"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="Log In"
+                android:textColor="#222222"
+                android:textSize="40dp"
+                android:id="@+id/login"
+                >
+
+            </Button>
+        </LinearLayout>
+    </FrameLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

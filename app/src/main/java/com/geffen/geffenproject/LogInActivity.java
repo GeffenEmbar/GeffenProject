@@ -49,11 +49,13 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         etEmail = findViewById(R.id.etEmailLogIn);
         etPassword = findViewById(R.id.etPasswordLogIn);
         btnLogin = findViewById(R.id.btnLogIn);
+        btnMove = findViewById(R.id.btnMove);
         databaseService=DatabaseService.getInstance();
 
 
         /// set the click listener
         btnLogin.setOnClickListener(this);
+        btnMove.setOnClickListener(this);
 
         sharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
 
