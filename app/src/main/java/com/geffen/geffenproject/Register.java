@@ -1,6 +1,8 @@
 package com.geffen.geffenproject;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +28,12 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     EditText etFname, etLname, etEmail, etPhone, etPassword;
     String fName, lName, email, phone, password;
     Button submit, move;
+
+
+    public static final String MyPREFERENCES = "MyPrefs";
+    SharedPreferences sharedPreferences;
+
+
 
     DatabaseService databaseService;
     private FirebaseAuth mAuth;
@@ -53,6 +61,10 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         move = findViewById(R.id.Move);
         submit.setOnClickListener(this);
         move.setOnClickListener(this);
+
+
+        sharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+
     }
 
     @Override
@@ -135,6 +147,19 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
                 Log.d(TAG, "createUserInDatabase: Redirecting to MainActivity");
                 /// Redirect to MainActivity and clear back stack to prevent user from going back to register screen
+
+
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                editor.putString("email", email);
+                editor.putString("password", password);
+
+                editor.commit();
+
+
+
+
+
                 Intent intent = new Intent(Register.this, MainActivity.class);
                 /// clear the back stack (clear history) and start the MainActivity
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

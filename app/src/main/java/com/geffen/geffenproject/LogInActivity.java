@@ -1,6 +1,8 @@
 package com.geffen.geffenproject;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,10 +23,15 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     private static final String TAG = "LoginActivity";
 
     private EditText etEmail, etPassword;
-    private Button btnLogin;
+    private Button btnLogin, btnMove;
     private TextView tvRegister;
     DatabaseService databaseService;
 
+
+
+    public static final String MyPREFERENCES = "MyPrefs";
+    SharedPreferences sharedPreferences;
+    private String email2, pass2;
 
 
     @Override
@@ -42,14 +49,18 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         etEmail = findViewById(R.id.etEmailLogIn);
         etPassword = findViewById(R.id.etPasswordLogIn);
         btnLogin = findViewById(R.id.btnLogIn);
-        tvRegister = findViewById(R.id.tvRegister);
-
         databaseService=DatabaseService.getInstance();
 
 
         /// set the click listener
         btnLogin.setOnClickListener(this);
-        tvRegister.setOnClickListener(this);
+
+        sharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+
+        email2=sharedPreferences.getString("email","");
+        pass2=sharedPreferences.getString("password","");
+        etEmail.setText(email2);
+        etPassword.setText(pass2);
 
     }
 
@@ -61,6 +72,16 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
             /// get the email and password entered by the user
             String email = etEmail.getText().toString();
             String password = etPassword.getText().toString();
+
+
+
+
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+
+            editor.putString("email", email);
+            editor.putString("password", password);
+
+            editor.commit();
 
             /// log the email and password
             Log.d(TAG, "onClick: Email: " + email);
@@ -81,7 +102,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
 
             /// Login user
             loginUser(email, password);
-        } else if (view.getId() == tvRegister.getId()) {
+        } else if (view.getId() == btnMove.getId()) {
             /// Navigate to Register Activity
             Intent registerIntent = new Intent(LogInActivity.this, Register.class);
             startActivity(registerIntent);
