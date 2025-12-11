@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 
+import com.geffen.geffenproject.model.Challenge;
 import com.geffen.geffenproject.model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -36,8 +37,8 @@ public class DatabaseService {
     /// paths for different data types in the database
     /// @see DatabaseService#readData(String)
     private static final String USERS_PATH = "users",
-                                FOODS_PATH = "foods",
-                                CARTS_PATH = "carts";
+                                QUEST_PATH = "questions",
+                                CHALLENGES_PATH = "challenges";
 
     /// callback interface for database operations
     /// @param <T> the type of the object to return
@@ -388,49 +389,54 @@ public class DatabaseService {
         deleteData(FOODS_PATH + "/" + foodId, callback);
     }
 
+
+
+
+
+     */
     // endregion food section
 
-    // region cart section
+    // region challenge section
 
-    /// create a new cart in the database
-    /// @param cart the cart object to create
+    /// create a new challenge in the database
+    /// @param challenge the challenge object to create
     /// @param callback the callback to call when the operation is completed
     ///               the callback will receive void
     ///              if the operation fails, the callback will receive an exception
     /// @see DatabaseCallback
-    /// @see Cart
-    public void createNewCart(@NotNull final Cart cart, @Nullable final DatabaseCallback<Void> callback) {
-        writeData(CARTS_PATH + "/" + cart.getId(), cart, callback);
+    /// @see com.geffen.geffenproject.model.Challenge
+    public void createNewChallenge(@NotNull final Challenge challenge, @Nullable final DatabaseCallback<Void> callback) {
+        writeData(CHALLENGES_PATH + "/" + challenge.getId(), challenge, callback);
     }
 
-    /// get a cart from the database
-    /// @param cartId the id of the cart to get
+    /// get a challenge from the database
+    /// @param challengeId the id of the challenge to get
     /// @param callback the callback to call when the operation is completed
-    ///                the callback will receive the cart object
+    ///                the callback will receive the challenge object
     ///               if the operation fails, the callback will receive an exception
     /// @see DatabaseCallback
-    /// @see Cart
-    public void getCart(@NotNull final String cartId, @NotNull final DatabaseCallback<Cart> callback) {
-        getData(CARTS_PATH + "/" + cartId, Cart.class, callback);
+    /// @see Challenge
+    public void getChallenge(@NotNull final String challengeId, @NotNull final DatabaseCallback<Challenge> callback) {
+        getData(CHALLENGES_PATH + "/" + challengeId, Challenge.class, callback);
     }
 
-    /// get all the carts from the database
+    /// get all the challenges from the database
     /// @param callback the callback to call when the operation is completed
-    ///               the callback will receive a list of cart objects
+    ///               the callback will receive a list of challenge objects
     ///
-    public void getCartList(@NotNull final DatabaseCallback<List<Cart>> callback) {
-        getDataList(CARTS_PATH, Cart.class, callback);
+    public void getChallengeList(@NotNull final DatabaseCallback<List<Challenge>> callback) {
+        getDataList(CHALLENGES_PATH, Challenge.class, callback);
     }
 
-    /// get all the carts of a specific user from the database
-    /// @param uid the id of the user to get the carts for
+    /// get all the challenges of a specific user from the database
+    /// @param uid the id of the user to get the challenges for
     /// @param callback the callback to call when the operation is completed
-    public void getUserCartList(@NotNull String uid, @NotNull final DatabaseCallback<List<Cart>> callback) {
-        getCartList(new DatabaseCallback<>() {
+    public void getUserChallengeList(@NotNull String uid, @NotNull final DatabaseCallback<List<Challenge>> callback) {
+        getChallengeList(new DatabaseCallback<>() {
             @Override
-            public void onCompleted(List<Cart> carts) {
-                carts.removeIf(cart -> !Objects.equals(cart.getUid(), uid));
-                callback.onCompleted(carts);
+            public void onCompleted(List<Challenge> challenges) {
+                challenges.removeIf(challenge -> !Objects.equals(challenge.getId(), uid));
+                callback.onCompleted(challenges);
             }
 
             @Override
@@ -441,27 +447,27 @@ public class DatabaseService {
     }
 
 
-    /// generate a new id for a new cart in the database
-    /// @return a new id for the cart
+    /// generate a new id for a new challenge in the database
+    /// @return a new id for the challenge
     /// @see #generateNewId(String)
-    /// @see Cart
-    public String generateCartId() {
-        return generateNewId(CARTS_PATH);
+    /// @see Challenge
+    public String generateChallengeId() {
+        return generateNewId(CHALLENGES_PATH);
     }
 
-    /// delete a cart from the database
-    /// @param cartId the id of the cart to delete
+    /// delete a challenge from the database
+    /// @param challengeId the id of the challenge to delete
     /// @param callback the callback to call when the operation is completed
-    public void deleteCart(@NotNull final String cartId, @Nullable final DatabaseCallback<Void> callback) {
-        deleteData(CARTS_PATH + "/" + cartId, callback);
+    public void deleteChallenge(@NotNull final String challengeId, @Nullable final DatabaseCallback<Void> callback) {
+        deleteData(CHALLENGES_PATH + "/" + challengeId, callback);
     }
 
-    // endregion cart section
+    // endregion challenge section
 
 
 
 
-    */
+
 
 
 

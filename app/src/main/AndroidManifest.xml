@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GeffenProject">
         <activity
+            android:name=".AddCh"
+            android:exported="false" />
+        <activity
+            android:name=".Admin"
+            android:exported="false" />
+        <activity
             android:name=".UserActivity"
             android:exported="false" />
         <activity

@@ -4,6 +4,20 @@ import java.util.ArrayList;
 
 public class Challenge {
     protected String id;
+
+
+
+    public Challenge(boolean completed, String correctAnswer, Integer difficulty, String id, String instrument, ArrayList<String> options, String question, String type) {
+        this.completed = completed;
+        this.correctAnswer = correctAnswer;
+        this.difficulty = difficulty;
+        this.id = id;
+        this.instrument = instrument;
+        this.options = options;
+        this.question = question;
+        this.type = type;
+    }
+
     protected String instrument, type, question, correctAnswer;
     protected ArrayList<String> options;
     protected Integer difficulty;
@@ -87,6 +101,16 @@ public class Challenge {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
 
