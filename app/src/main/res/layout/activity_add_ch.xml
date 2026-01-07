@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="9"
+        android:weightSum="10"
         android:orientation="vertical"
         android:background="@color/black"
         >
@@ -34,7 +34,7 @@
             android:layout_weight="1"
             android:background="@color/white"
             android:entries="@array/instrument"
-            android:id="@+id/instrument"
+            android:id="@+id/spInstrument"
             >
         </Spinner>
 
@@ -111,7 +111,7 @@
             android:id="@+id/editTextsContainer2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3.5"
+            android:layout_weight="4"
             android:orientation="vertical">
 
             <Spinner
@@ -161,10 +161,22 @@
 
         </LinearLayout>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="0.5"
+            android:text="Add"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:background="@color/black"
+            android:id="@+id/btnAdd"
+            >
 
+        </Button>
 
 
 
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

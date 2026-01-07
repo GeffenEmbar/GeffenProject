@@ -2,7 +2,7 @@ package com.geffen.geffenproject.model;
 
 public class User {
     private String id, fname, lname, phone, email, password;
-    private Boolean isAdmin;
+    private boolean isAdmin;
 
 
 

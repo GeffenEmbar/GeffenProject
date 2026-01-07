@@ -94,6 +94,18 @@
                 android:textColor="#222222"
                 android:textSize="40dp"
                 android:id="@+id/admin"
+                android:layout_marginBottom="16dp"
+                >
+
+            </Button>
+            <Button
+                android:background="@drawable/button_background"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:text="temp"
+                android:textColor="#222222"
+                android:textSize="40dp"
+                android:id="@+id/temp"
                 >
 
             </Button>

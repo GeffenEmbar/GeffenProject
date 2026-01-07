@@ -5,6 +5,11 @@ import java.util.ArrayList;
 public class Challenge {
     protected String id;
 
+    protected String instrument, type, question, correctAnswer;
+    protected ArrayList<String> options;
+    protected Integer difficulty;
+    protected boolean completed;
+
 
 
     public Challenge(boolean completed, String correctAnswer, Integer difficulty, String id, String instrument, ArrayList<String> options, String question, String type) {
@@ -17,11 +22,6 @@ public class Challenge {
         this.question = question;
         this.type = type;
     }
-
-    protected String instrument, type, question, correctAnswer;
-    protected ArrayList<String> options;
-    protected Integer difficulty;
-    protected boolean completed;
 
 
 

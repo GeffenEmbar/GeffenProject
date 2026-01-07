@@ -11,6 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GeffenProject">
+
+
+
+        <activity
+            android:name=".UserProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserList"
+            android:exported="false" />
         <activity
             android:name=".AddCh"
             android:exported="false" />
