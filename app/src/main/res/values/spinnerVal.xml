@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="cat">
-        <item>בחר קטוגריה</item>
-        <item>זיהוי תווים משמיעה</item>
-        <item>זיהוי אקורדים משמיעה</item>
-        <item>זיהוי תווים מראייה</item>
+    <string-array name="notes">
+        <item>Note</item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
     </string-array>
 
     <string-array name="diff">
-        <item>בחר רמת קושי</item>
-        <item>קל</item>
-        <item>בינוני</item>
-        <item>קשה</item>
+        <item>Difficulty</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
 
     <string-array name="instrument">
-        <item>בחר כלי נגינה</item>
-        <item>גיטרה</item>
-        <item>פסנתר</item>
+        <item>Instrument</item>
+        <item>guitar</item>
+        <item>piano</item>
     </string-array>
 
 

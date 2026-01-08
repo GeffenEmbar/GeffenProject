@@ -75,10 +75,10 @@
                 android:elevation="8dp" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btnTable"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:text="2"
+                android:text="User Table"
                 android:textSize="20sp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/button_background"

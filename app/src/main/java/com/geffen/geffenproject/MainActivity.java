@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button register, login, admin, temp;
+    Button register, login, admin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +29,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         register = findViewById(R.id.register);
         login = findViewById(R.id.login);
         admin = findViewById(R.id.admin);
-        temp = findViewById(R.id.temp);
         register.setOnClickListener(this);
         login.setOnClickListener(this);
         admin.setOnClickListener(this);
-        temp.setOnClickListener(this);
+
 
     }
 
@@ -51,11 +50,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if (view.getId() == admin.getId())
         {
             Intent intent = new Intent(MainActivity.this, Admin.class);
-            startActivity(intent);
-        }
-        else if(view.getId() == temp.getId())
-        {
-            Intent intent = new Intent(MainActivity.this, UserList.class);
             startActivity(intent);
         }
     }

@@ -5,44 +5,38 @@ import java.util.ArrayList;
 public class Challenge {
     protected String id;
 
-    protected String instrument, type, question, correctAnswer;
-    protected ArrayList<String> options;
-    protected Integer difficulty;
+    protected String instrument, type, question, correctAnswer, false1, false2, false3, difficulty;
     protected boolean completed;
 
 
 
-    public Challenge(boolean completed, String correctAnswer, Integer difficulty, String id, String instrument, ArrayList<String> options, String question, String type) {
-        this.completed = completed;
-        this.correctAnswer = correctAnswer;
-        this.difficulty = difficulty;
-        this.id = id;
-        this.instrument = instrument;
-        this.options = options;
-        this.question = question;
-        this.type = type;
-    }
-
-
 
     // פעולות בונות
-    public Challenge(String instrument, String type, String question, String correctAnswer, ArrayList<String> options, Integer difficulty, boolean completed) {
-        this.instrument = instrument;
-        this.type = type;
-        this.question = question;
+
+    public Challenge(String correctAnswer, String difficulty, String false1, String false2, String false3, String id, String instrument, String question, String type) {
         this.correctAnswer = correctAnswer;
-        this.options = options;
         this.difficulty = difficulty;
-        this.completed = completed;
-    }
-    public Challenge(String instrument, String type, String question, String correctAnswer, ArrayList<String> options, Integer difficulty) {
+        this.false1 = false1;
+        this.false2 = false2;
+        this.false3 = false3;
+        this.id = id;
         this.instrument = instrument;
-        this.type = type;
         this.question = question;
-        this.correctAnswer = correctAnswer;
-        this.options = options;
-        this.difficulty = difficulty;
+        this.type = type;
         this.completed = false;
+    }
+
+    public Challenge(boolean completed, String correctAnswer, String difficulty, String false1, String false2, String false3, String id, String instrument, String question, String type) {
+        this.completed = completed;
+        this.correctAnswer = correctAnswer;
+        this.difficulty = difficulty;
+        this.false1 = false1;
+        this.false2 = false2;
+        this.false3 = false3;
+        this.id = id;
+        this.instrument = instrument;
+        this.question = question;
+        this.type = type;
     }
     public Challenge() {
     }
@@ -79,19 +73,11 @@ public class Challenge {
         this.correctAnswer = correctAnswer;
     }
 
-    public ArrayList<String> getOptions() {
-        return options;
-    }
-
-    public void setOptions(ArrayList<String> options) {
-        this.options = options;
-    }
-
-    public Integer getDifficulty() {
+    public String getDifficulty() {
         return difficulty;
     }
 
-    public void setDifficulty(Integer difficulty) {
+    public void setDifficulty(String difficulty) {
         this.difficulty = difficulty;
     }
 
@@ -103,7 +89,29 @@ public class Challenge {
         this.completed = completed;
     }
 
+    public String getFalse1() {
+        return false1;
+    }
 
+    public void setFalse1(String false1) {
+        this.false1 = false1;
+    }
+
+    public String getFalse2() {
+        return false2;
+    }
+
+    public void setFalse2(String false2) {
+        this.false2 = false2;
+    }
+
+    public String getFalse3() {
+        return false3;
+    }
+
+    public void setFalse3(String false3) {
+        this.false3 = false3;
+    }
 
     public String getId() {
         return id;
@@ -120,19 +128,21 @@ public class Challenge {
         return (userAnswer.equals(this.correctAnswer));
     }
 
-
-
-    // פעולת הדפסה
     @Override
     public String toString() {
         return "Challenge{" +
-                "instrument='" + instrument + '\'' +
+                "completed=" + completed +
+                ", id='" + id + '\'' +
+                ", instrument='" + instrument + '\'' +
                 ", type='" + type + '\'' +
                 ", question='" + question + '\'' +
                 ", correctAnswer='" + correctAnswer + '\'' +
-                ", options=" + options +
+                ", false1='" + false1 + '\'' +
+                ", false2='" + false2 + '\'' +
+                ", false3='" + false3 + '\'' +
                 ", difficulty=" + difficulty +
-                ", completed=" + completed +
                 '}';
     }
+
+
 }

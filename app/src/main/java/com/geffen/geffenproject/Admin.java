@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class Admin extends AppCompatActivity implements View.OnClickListener {
 
-    Button chBtn;
+    Button chBtn, btnTable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +27,22 @@ public class Admin extends AppCompatActivity implements View.OnClickListener {
         });
 
         chBtn = findViewById(R.id.challengeBtn);
+        btnTable = findViewById(R.id.btnTable);
         chBtn.setOnClickListener(this);
+        btnTable.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(Admin.this, AddCh.class);
-        startActivity(intent);
+        if (view.getId() == chBtn.getId())
+        {
+            Intent intent = new Intent(Admin.this, Notes_Activity.class);
+            startActivity(intent);
+        }
+        else if (view.getId() == btnTable.getId())
+        {
+            Intent intent = new Intent(Admin.this, UserList.class);
+            startActivity(intent);
+        }
     }
 }

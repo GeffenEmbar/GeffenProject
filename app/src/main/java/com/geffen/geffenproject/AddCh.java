@@ -14,13 +14,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class AddCh extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
+public class AddCh extends AppCompatActivity{
 
-    Spinner catSpinner, spInstrument, spDiff;
-    LinearLayout editTextsContainer, editTextsContainer2;
-    EditText correctAnswer;
 
-    Button btnAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,54 +28,6 @@ public class AddCh extends AppCompatActivity implements AdapterView.OnItemSelect
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        correctAnswer = findViewById(R.id.correct);
-        spDiff = findViewById(R.id.diff);
-        spInstrument = findViewById(R.id.spInstrument);
-        catSpinner = findViewById(R.id.cat);
-        editTextsContainer = findViewById(R.id.editTextsContainer);
-        editTextsContainer2 = findViewById(R.id.editTextsContainer2);
-        catSpinner.setOnItemSelectedListener(this);
-        btnAdd = findViewById(R.id.btnAdd);
-        btnAdd.setOnClickListener(this);
-
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int i, long l) {
-        String selected = parent.getItemAtPosition(i).toString();
-
-        if (i == 1) {
-            // FIRST real option
-            editTextsContainer.setVisibility(View.VISIBLE);
-            editTextsContainer2.setVisibility(View.GONE);
-        }
-        else if (i == 2) {
-            // SECOND real option
-            editTextsContainer.setVisibility(View.GONE);
-            editTextsContainer2.setVisibility(View.VISIBLE);
-        }
-        else {
-            // HINT or something else
-            editTextsContainer.setVisibility(View.GONE);
-            editTextsContainer2.setVisibility(View.GONE);
-        }
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }
-
-
-    String instrument = spInstrument.getSelectedItem().toString();
-    String type = catSpinner.getSelectedItem().toString();
-    String diff = spDiff.getSelectedItem().toString();
-
-    String correct = correctAnswer.toString();
-
-
-    @Override
-    public void onClick(View view) {
 
     }
 }
