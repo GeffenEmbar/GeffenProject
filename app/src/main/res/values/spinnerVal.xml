@@ -2,14 +2,19 @@
 <resources>
 
     <string-array name="notes">
-        <item>Note</item>
+        <item>Note/Chord</item>
         <item>A</item>
+        <item>A# / Bb</item>
         <item>B</item>
         <item>C</item>
+        <item>C# / Db</item>
         <item>D</item>
+        <item>D# /  Eb</item>
         <item>E</item>
         <item>F</item>
+        <item>F# / Gb</item>
         <item>G</item>
+        <item>G# / Ab</item>
     </string-array>
 
     <string-array name="diff">
@@ -23,6 +28,24 @@
         <item>Instrument</item>
         <item>guitar</item>
         <item>piano</item>
+    </string-array>
+
+    <string-array name="type">
+        <item>Type</item>
+        <item>notes</item>
+        <item>chords</item>
+    </string-array>
+
+    <string-array name="chordType">
+        <item>Chord Type</item>
+        <item>Major</item>
+        <item>Minor</item>
+        <item>Diminished</item>
+        <item>Augmented</item>
+        <item>Power chord (5th)</item>
+        <item>Major 7th chord</item>
+        <item>Minor 7th chord</item>
+        <item>Sus chord (2/4)</item>
     </string-array>
 
 

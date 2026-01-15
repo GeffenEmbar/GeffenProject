@@ -31,6 +31,55 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Type:"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="5dp"
+            >
+
+        </TextView>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:outlineSpotShadowColor="@color/white"
+            android:background="@color/white"
+            android:entries="@array/type"
+            android:id="@+id/spType"
+            android:layout_marginBottom="5dp"
+            >
+        </Spinner>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Type:"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="5dp"
+            android:visibility="gone"
+            android:id="@+id/tvType"
+            >
+
+        </TextView>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:outlineSpotShadowColor="@color/white"
+            android:background="@color/white"
+            android:entries="@array/chordType"
+            android:id="@+id/spChordType"
+            android:layout_marginBottom="5dp"
+            android:visibility="gone"
+            >
+        </Spinner>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Choose instrument:"
             android:textColor="@color/white"
             android:textSize="20dp"

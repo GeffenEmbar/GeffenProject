@@ -5,14 +5,34 @@ import java.util.ArrayList;
 public class Challenge {
     protected String id;
 
-    protected String instrument, type, question, correctAnswer, false1, false2, false3, difficulty;
+    protected String instrument;
+    protected String type;
+    protected String question;
+    protected String correctAnswer;
+    protected String false1;
+    protected String false2;
+    protected String false3;
+    protected String difficulty;
+    protected String chordType;
     protected boolean completed;
 
 
 
 
     // פעולות בונות
-
+    public Challenge(String chordType, boolean completed, String correctAnswer, String difficulty, String false1, String false2, String false3, String id, String instrument, String question, String type) {
+        this.chordType = chordType;
+        this.completed = completed;
+        this.correctAnswer = correctAnswer;
+        this.difficulty = difficulty;
+        this.false1 = false1;
+        this.false2 = false2;
+        this.false3 = false3;
+        this.id = id;
+        this.instrument = instrument;
+        this.question = question;
+        this.type = type;
+    }
     public Challenge(String correctAnswer, String difficulty, String false1, String false2, String false3, String id, String instrument, String question, String type) {
         this.correctAnswer = correctAnswer;
         this.difficulty = difficulty;
@@ -87,6 +107,14 @@ public class Challenge {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public String getChordType() {
+        return chordType;
+    }
+
+    public void setChordType(String chordType) {
+        this.chordType = chordType;
     }
 
     public String getFalse1() {
