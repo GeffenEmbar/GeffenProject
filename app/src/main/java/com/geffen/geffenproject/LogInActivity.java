@@ -16,6 +16,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.geffen.geffenproject.model.User;
 import com.geffen.geffenproject.services.DatabaseService;
 
 public class LogInActivity extends AppCompatActivity implements View.OnClickListener {
@@ -23,7 +24,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     private static final String TAG = "LoginActivity";
 
     private EditText etEmail, etPassword;
-    private Button btnLogin, btnMove;
+    private Button btnLogin, btnMove, btnBack;
     private TextView tvRegister;
     DatabaseService databaseService;
 
@@ -50,12 +51,14 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         etPassword = findViewById(R.id.etPasswordLogIn);
         btnLogin = findViewById(R.id.btnLogIn);
         btnMove = findViewById(R.id.btnMove);
+        btnBack = findViewById(R.id.btnBack);
         databaseService=DatabaseService.getInstance();
 
 
         /// set the click listener
         btnLogin.setOnClickListener(this);
         btnMove.setOnClickListener(this);
+        btnBack.setOnClickListener(this);
 
         sharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
 
@@ -108,9 +111,12 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
             /// Navigate to Register Activity
             Intent registerIntent = new Intent(LogInActivity.this, Register.class);
             startActivity(registerIntent);
+        } else if (view.getId() == btnBack.getId()) {
+
+            Intent registerIntent = new Intent(LogInActivity.this, MainActivity.class);
+            startActivity(registerIntent);
+
         }
-
-
 
 
     }
@@ -156,6 +162,30 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
                 /// Clear the back stack (clear history) and start the MainActivity
                 mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(mainIntent);
+
+                databaseService.getUser(uid, new DatabaseService.DatabaseCallback<User>() {
+                    @Override
+                    public void onCompleted(User user) {
+
+                        Intent intent;
+
+                        if (user != null && user.getAdmin()) {
+                            intent = new Intent(LogInActivity.this, Admin.class);
+                        } else {
+                            intent = new Intent(LogInActivity.this, GeneralActivity.class);
+                        }
+
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onFailed(Exception e) {
+                        Log.e(TAG, "Failed to get user data", e);
+                    }
+                });
+
+
             }
 
             @Override

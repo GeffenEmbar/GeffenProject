@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Challenge {
     protected String id;
-
+    protected int num;
     protected String instrument;
     protected String type;
     protected String question;
@@ -33,6 +33,23 @@ public class Challenge {
         this.question = question;
         this.type = type;
     }
+
+
+    public Challenge(String chordType, boolean completed, String correctAnswer, String difficulty, String false1, String false2, String false3, String id, String instrument, int num, String question, String type) {
+        this.chordType = chordType;
+        this.completed = completed;
+        this.correctAnswer = correctAnswer;
+        this.difficulty = difficulty;
+        this.false1 = false1;
+        this.false2 = false2;
+        this.false3 = false3;
+        this.id = id;
+        this.instrument = instrument;
+        this.num = num;
+        this.question = question;
+        this.type = type;
+    }
+
     public Challenge(String correctAnswer, String difficulty, String false1, String false2, String false3, String id, String instrument, String question, String type) {
         this.correctAnswer = correctAnswer;
         this.difficulty = difficulty;
@@ -149,6 +166,13 @@ public class Challenge {
         this.id = id;
     }
 
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
 
     // פעולת בדיקת תשובה
     public boolean checkAnswer(String userAnswer)
@@ -159,8 +183,9 @@ public class Challenge {
     @Override
     public String toString() {
         return "Challenge{" +
-                "completed=" + completed +
+                "chordType='" + chordType + '\'' +
                 ", id='" + id + '\'' +
+                ", num=" + num +
                 ", instrument='" + instrument + '\'' +
                 ", type='" + type + '\'' +
                 ", question='" + question + '\'' +
@@ -168,7 +193,8 @@ public class Challenge {
                 ", false1='" + false1 + '\'' +
                 ", false2='" + false2 + '\'' +
                 ", false3='" + false3 + '\'' +
-                ", difficulty=" + difficulty +
+                ", difficulty='" + difficulty + '\'' +
+                ", completed=" + completed +
                 '}';
     }
 

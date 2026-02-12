@@ -27,7 +27,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
     EditText etFname, etLname, etEmail, etPhone, etPassword;
     String fName, lName, email, phone, password;
-    Button submit, move;
+    Button submit, back;
 
 
     public static final String MyPREFERENCES = "MyPrefs";
@@ -58,9 +58,9 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         etPhone = findViewById(R.id.etPhone);
         etPassword = findViewById(R.id.etPassword);
         submit = findViewById(R.id.btnSubmit);
-        move = findViewById(R.id.Move);
+        back = findViewById(R.id.Move);
         submit.setOnClickListener(this);
-        move.setOnClickListener(this);
+        back.setOnClickListener(this);
 
 
         sharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
@@ -93,7 +93,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         }
         else
         {
-            Intent i = new Intent(this, ShowInfo.class);
+            Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
         }
 
@@ -122,7 +122,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
                                 String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-                                User user = new User(uid, fname, lname, email, phone, password, null);
+                                User user = new User(uid, fname, lname, email, phone, password, false);
 
                                 createUserInDatabase(user);
 
@@ -160,7 +160,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
 
 
-                Intent intent = new Intent(Register.this, MainActivity.class);
+                Intent intent = new Intent(Register.this, GeneralActivity.class);
                 /// clear the back stack (clear history) and start the MainActivity
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);

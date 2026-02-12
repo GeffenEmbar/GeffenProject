@@ -99,12 +99,22 @@
                 android:layout_marginBottom="16dp"
                 />
 
-            <!-- Register Text -->
             <Button
                 android:id="@+id/btnMove"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:text="Don't have an account? Register"
+                android:background="@drawable/button_background"
+                android:textColor="#222222"
+                android:elevation="8dp"
+                android:layout_marginBottom="16dp"
+                />
+
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Back"
                 android:background="@drawable/button_background"
                 android:textColor="#222222"
                 android:elevation="8dp"/>

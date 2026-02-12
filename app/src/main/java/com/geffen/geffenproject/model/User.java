@@ -8,7 +8,7 @@ public class User {
 
 
     // פעולות בונות
-    public User(String id, String fname, String lname, String phone, String email, String password, Boolean isAdmin) {
+    public User(String id, String fname, String lname, String phone, String email, String password, boolean isAdmin) {
         this.id = id;
         this.fname = fname;
         this.lname = lname;
@@ -75,7 +75,7 @@ public class User {
         isAdmin = admin;
     }
 
-    public Boolean getAdmin() {
+    public boolean getAdmin() {
         return isAdmin;
     }
 
